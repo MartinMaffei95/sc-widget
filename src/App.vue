@@ -3,7 +3,11 @@ import ExchangesContainer from './components/Exchanges/ExchangesContainer.vue'
 </script>
 
 <template>
-    <ExchangesContainer />
+    <div class="flex flex-col bg-neutral-800 text-neutral-50 gap-4 p-4 w-full">
+        <h1 class="font-bold text-2xl tracking-widest">Sim Companies Market</h1>
+        <span>Between now and yesterday</span>
+        <ExchangesContainer />
+    </div>
 </template>
 
 <style scoped>
