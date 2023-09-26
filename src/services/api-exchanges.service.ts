@@ -28,10 +28,6 @@ class ExchangesApi {
     }
     async fetchExchanges() {
         try {
-            const actualTick = new Date()
-
-            const formattedTick = actualTick.toISOString()
-
             const res = await fetch(`${import.meta.env.VITE_API_URL}/exchanges`)
 
             const data = await res.json()

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive } from 'vue'
 import ExchangesApi from '../../services/api-exchanges.service'
 import Card from './Card.vue'
 const service = ExchangesApi.getInstance()
