@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, reactive } from 'vue'
+import { Ref, computed, onMounted, reactive, ref } from 'vue'
 import ExchangesApi from '../../services/api-exchanges.service'
 import Card from './Card.vue'
 const service = ExchangesApi.getInstance()
@@ -25,13 +25,21 @@ const renderedExchanges = computed(() => {
     }
 })
 
+const view: Ref<'UP' | 'DOWN'> = ref('UP')
+
+computed(() => {})
 onMounted(async () => {
     await service.fetchExchanges()
 })
 </script>
 
 <template>
-    <div class="flex text-neutral-50 gap-4 p-4 w-full [&_div]:w-full">
+    <div>
+        <input type="checkbox" v-model="view" />
+    </div>
+    <div
+        class="flex flex-col sm:flex-row text-neutral-50 gap-4 p-2 sm:p4 w-full [&_div]:w-full"
+    >
         <div class="flex flex-col gap-4">
             <template v-for="exchange in renderedExchanges">
                 <Card v-if="exchange.is_up" :exchange="exchange" />
